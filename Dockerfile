@@ -9,15 +9,14 @@ ENV NODE_OPTIONS=--max_old_space_size=4096
 
 WORKDIR /app
 
+# Install global dependencies
+RUN npm install -g npm@latest
+
 # Copy package files first for better caching
 COPY package*.json ./
 
-# Install dependencies based on NODE_ENV
-RUN if [ "$NODE_ENV" = "production" ]; then \
-    npm ci --only=production; \
-    else \
-    npm install; \
-    fi
+# Install all dependencies, including dev dependencies for building
+RUN npm ci
 
 # Copy the rest of the application
 COPY . .
