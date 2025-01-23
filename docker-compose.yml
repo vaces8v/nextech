@@ -5,9 +5,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - NODE_ENV=production
     ports:
       - '3000:3000'
     environment:
       - NEXT_PUBLIC_API=https://cwnotes.store/api
       - NEXT_PUBLIC_DOMAIN=https://cwnotes.ru
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1'
     restart: unless-stopped
