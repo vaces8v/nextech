@@ -9,14 +9,16 @@ ENV NODE_OPTIONS=--max_old_space_size=4096
 
 WORKDIR /app
 
-# Install global dependencies
-RUN npm install -g npm@latest
+# Install global dependencies and tools
+RUN apk add --no-cache git
 
 # Copy package files first for better caching
 COPY package*.json ./
 
-# Install all dependencies, including dev dependencies for building
-RUN npm ci
+# Clear npm cache and install dependencies
+RUN npm cache clean --force && \
+    npm install -g npm@latest && \
+    npm ci --verbose
 
 # Copy the rest of the application
 COPY . .
