@@ -26,14 +26,15 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/app/*": ["app/*"],
-      "@/components/*": ["components/*"],
-      "@/lib/*": ["lib/*"],
-      "@/styles/*": ["styles/*"],
-      "@/public/*": ["public/*"],
-      "@/store/*": ["store/*"],
-      "@/config/*": ["config/*"],
-      "@/types/*": ["types/*"]
+      "@/*": ["./*"],
+      "@/app/*": ["./app/*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/styles/*": ["./styles/*"],
+      "@/public/*": ["./public/*"],
+      "@/store/*": ["./store/*"],
+      "@/config/*": ["./config/*"],
+      "@/types/*": ["./types/*"]
     }
   },
   "include": [
