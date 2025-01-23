@@ -9,6 +9,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
+    "strictNullChecks": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -23,11 +24,21 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "baseUrl": ".",
+    "paths": {
+      "@/app/*": ["app/*"],
+      "@/components/*": ["components/*"],
+      "@/lib/*": ["lib/*"],
+      "@/styles/*": ["styles/*"],
+      "@/public/*": ["public/*"],
+      "@/store/*": ["store/*"],
+      "@/config/*": ["config/*"],
+      "@/types/*": ["types/*"]
+    }
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx",
+    "**/*.tsx", 
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],

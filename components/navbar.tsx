@@ -27,7 +27,7 @@ import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { GithubIcon, SearchIcon, Logo, UserIcon } from "@/components/icons";
-import { IProductCard } from "@/types";
+import { IProductCard } from "@/types/product";
 import { ProductCard } from "@/components/ProductCard/ProductCard";
 import { products } from "@/app/page";
 
