@@ -11,6 +11,7 @@ import {
 } from "@/components/ProductCard/ProductCard";
 import { ProductDetails } from "@/components/ProductDetails/ProductDetails";
 import { useCartStore } from "@/store/cart-store";
+import { motion } from "framer-motion";
 
 export const products: IProductCard[] = [
   {
@@ -427,17 +428,41 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-4 w-full justify-center">
+      <motion.div
+        layout
+        layoutRoot
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 30,
+          duration: 0.3,
+        }}
+        className="flex flex-wrap gap-4 w-full justify-center overflow-hidden"
+      >
         {filteredProducts.map((product, index) => (
-          <ProductCard
-            key={index}
-            product={product}
-            {...product}
-            onAddToCart={() => addToCart(product)}
-            onOpenDetails={() => handleOpenModal(product)}
-          />
+          <motion.div
+            key={product.id || index}
+            layout
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{
+              duration: 0.3,
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
+            }}
+            className="flex"
+          >
+            <ProductCard
+              product={product}
+              {...product}
+              onAddToCart={() => addToCart(product)}
+              onOpenDetails={() => handleOpenModal(product)}
+            />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
