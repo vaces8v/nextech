@@ -193,25 +193,51 @@ export const Navbar = ({
         </NavbarContent>
 
         <NavbarMenu>
-          {searchInput}
-          <div className="mx-4 mt-2 flex flex-col gap-2">
-            {siteConfig.navMenuItems.map((item, index) => (
-              <NavbarMenuItem key={`${item}-${index}`}>
-                <Link
-                  color={
-                    index === 2
-                      ? "primary"
-                      : index === siteConfig.navMenuItems.length - 1
-                        ? "danger"
-                        : "foreground"
-                  }
-                  href="#"
-                  size="lg"
+          <div className="mx-4 mt-2 flex flex-col gap-4">
+            {searchInput}
+            {siteConfig.navItems.map((item) => (
+              <NavbarMenuItem key={item.href}>
+                <NextLink
+                  className={clsx(
+                    "w-full",
+                    "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  )}
+                  color="foreground"
+                  href={item.href}
                 >
                   {item.label}
-                </Link>
+                </NextLink>
               </NavbarMenuItem>
             ))}
+            <NavbarMenuItem>
+              <div className="flex gap-2">
+                <NextLink href="/profile" className="flex-1">
+                  <Button
+                    className="w-full text-sm font-normal text-default-600 bg-default-100"
+                    startContent={<UserIcon className="text-lg" />}
+                    variant="flat"
+                  >
+                    Профиль
+                  </Button>
+                </NextLink>
+                <Link
+                  isExternal
+                  href={siteConfig.links.github}
+                  className="flex-1"
+                >
+                  <Button
+                    className="w-full text-sm font-normal text-default-600 bg-default-100"
+                    startContent={<GithubIcon className="text-lg" />}
+                    variant="flat"
+                  >
+                    GitHub
+                  </Button>
+                </Link>
+              </div>
+            </NavbarMenuItem>
+            <NavbarMenuItem>
+              <ThemeSwitch className="w-full" />
+            </NavbarMenuItem>
           </div>
         </NavbarMenu>
       </HeroUINavbar>

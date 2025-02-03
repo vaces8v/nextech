@@ -4,6 +4,9 @@ import { Input } from "@heroui/input";
 import { Select, SelectItem } from "@heroui/select";
 import { Icon } from "@iconify/react";
 import { Checkbox } from "@heroui/checkbox";
+import { Button } from "@heroui/button";
+import { Badge } from "@heroui/badge";
+import { CartDrawer } from "@/components/CartDrawer/CartDrawer";
 
 import {
   IProductCard,
@@ -277,8 +280,9 @@ export default function Home() {
     categories: [] as string[],
   });
   const [sortBy, setSortBy] = useState<string>("default");
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const { addToCart } = useCartStore();
+  const { addToCart, cart, removeFromCart } = useCartStore();
 
   const handleOpenModal = (product: IProductCard) => {
     setSelectedProduct(product);
@@ -463,6 +467,39 @@ export default function Home() {
           </motion.div>
         ))}
       </motion.div>
+
+      <motion.div
+        className="md:hidden fixed bottom-6 right-6 z-50"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      >
+        <Badge
+          content={cart.length}
+          color="danger"
+          shape="circle"
+          size="lg"
+          showOutline={false}
+          className="text-tiny"
+          isInvisible={cart.length === 0}
+        >
+          <Button
+            isIconOnly
+            color="default"
+            size="lg"
+            className="rounded-full shadow-lg w-[60px] h-[60px]"
+            onPress={() => setIsCartOpen(!isCartOpen)}
+          >
+            <Icon className="text-3xl" icon="mdi:cart" />
+          </Button>
+        </Badge>
+      </motion.div>
+      <CartDrawer
+        cartItems={cart}
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        onRemoveItem={removeFromCart}
+      />
     </section>
   );
 }

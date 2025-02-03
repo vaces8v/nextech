@@ -52,6 +52,6 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/Codeium/nextech-app",
+    github: "https://github.com/vaces8v/nextech",
   },
 };

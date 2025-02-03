@@ -29,11 +29,11 @@
   "@heroui/system": "2.4.6",
   "@heroui/tabs": "2.2.8",
   "@heroui/theme": "2.4.5",
-  "@iconify/react": "^5.2.0",
   "@react-aria/ssr": "3.9.7",
   "@react-aria/visually-hidden": "3.8.18",
   "chart.js": "^4.4.7",
   "clsx": "2.1.1",
+  "fastq": "^1.17.1",
   "framer-motion": "11.13.1",
   "intl-messageformat": "^10.5.0",
   "next": "^15.0.4",
@@ -42,12 +42,12 @@
   "react-chartjs-2": "^5.3.0",
   "react-dom": "^18.2.0",
   "recharts": "^2.15.0",
+  "reusify": "^1.0.4",
   "usehooks-ts": "^3.1.0",
-  "zustand": "^5.0.3",
-  "fastq": "^1.17.1",
-  "reusify": "^1.0.4"
+  "zustand": "^5.0.3"
  },
  "devDependencies": {
+  "@iconify/react": "^5.2.0",
   "@next/eslint-plugin-next": "15.0.4",
   "@react-types/shared": "3.25.0",
   "@types/node": "^20.11.10",

@@ -83,19 +83,19 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({
               <div className="w-full md:w-1/2">
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-700">
+                    <h3 className="text-lg font-semibold text-gray-400">
                       Описание:
                     </h3>
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-gray-400 mt-2">
                       {product?.description || "Описание недоступно."}
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-700">
+                    <h3 className="text-lg font-semibold text-gray-400">
                       Характеристики:
                     </h3>
-                    <ul className="list-disc list-inside text-gray-600 mt-1">
+                    <ul className="list-disc list-inside text-gray-400 mt-1">
                       {product?.specifications?.map((spec, index) => (
                         <li key={index}>{spec}</li>
                       ))}
@@ -103,7 +103,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({
                   </div>
 
                   <div className="flex gap-2 items-center text-center">
-                    <h3 className="text-lg font-semibold text-gray-700">
+                    <h3 className="text-lg font-semibold text-gray-400">
                       Доступность:{" "}
                     </h3>
                     <p
